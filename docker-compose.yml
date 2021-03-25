@@ -1,0 +1,17 @@
+version: "3"
+
+networks:
+  web-app-truep:
+    driver: bridge
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    networks:
+      - web-app-truep
+    
