@@ -1,12 +1,13 @@
 package handler
 
 import (
-	"go-web-app/internal/api"
-	"go-web-app/internal/api/mocks"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"go-web-app/internal/api"
+	"go-web-app/internal/api/mocks"
 )
 
 func TestHandler_Hello(t *testing.T) {
@@ -17,7 +18,6 @@ func TestHandler_Hello(t *testing.T) {
 
 	tests := []struct {
 		name     string
-		args     args
 		joke     *api.JokeResponse
 		err      error
 		codeWant int
