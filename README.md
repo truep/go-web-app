@@ -1,4 +1,5 @@
 # go-web-app
+[![codecov](https://codecov.io/gh/truep/go-web-app/branch/main/graph/badge.svg?token=6PZZMP26RG)](https://codecov.io/gh/truep/go-web-app)
 
 По мотивам воркшопа: 
 
