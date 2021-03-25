@@ -31,7 +31,7 @@ func TestHandler_Hello(t *testing.T) {
 			apiMock := mocks.Client{}
 			apiMock.On("GetJoke").Return(tt.joke, tt.err)
 
-			h := NewHandler(&apiMock)
+			h := NewHandler(&apiMock, "")
 
 			req, _ := http.NewRequest("GET", "/", nil)
 			rr := httptest.NewRecorder()
