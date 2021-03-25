@@ -1,2 +1,5 @@
+.*
+!.gitignore
 vendor
 bin
+!.github
