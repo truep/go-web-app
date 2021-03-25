@@ -44,7 +44,8 @@ func main() {
 
 	go func() {
 		<-quit
-		ctx, _ := context.WithTimeout(context.Background(), time.Minute)
+		ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
+		defer cancel()
 		// here all cleanup, close db conn and so on...
 		err := srv.Shutdown(ctx)
 		// ... other func
