@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: action/setup-go@v1
+      - uses: actions/setup-go@v2
         with: 
           go-version: latest
       
@@ -30,7 +30,7 @@ jobs:
         run: go mod tidy && go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 
       - name: Upload Coverage report to CodeCov
-        uses: codecov/codecov-action@v1.0.0
+        uses: codecov/codecov-action@v1
         with:
           file: ./coverage.txt        
     
