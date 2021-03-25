@@ -7,6 +7,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/ilyakaznacheev/cleanenv"
 
+	"go-web-app/internal/api/jokes"
 	"go-web-app/internal/config"
 	"go-web-app/internal/handler"
 )
@@ -17,11 +18,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	h := handler.NewHandler()
+	apiClient := jokes.NewJokeClient(cfg.JokeURL)
 
+	h := handler.NewHandler(apiClient)
 	r := chi.NewRouter()
 
-	r.Get("/hello", h.Hello)
+	r.Get("/", h.Hello)
 
 	path := cfg.Host + ":" + cfg.Port
 
