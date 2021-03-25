@@ -12,6 +12,7 @@ ENV APP_NAME web-app-truep
 WORKDIR /opt/app
 
 COPY --from=builder /opt/code/bin/${APP_NAME} ./
+COPY --from=builder /opt/code/config.yml ./
 
 EXPOSE 8080
 
