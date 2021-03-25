@@ -23,10 +23,12 @@ func main() {
 
 	r.Get("/hello", h.Hello)
 
-	log.Println("Starting server")
-	if err := http.ListenAndServe(":8080", r); err != nil {
+	path := cfg.Host + ":" + cfg.Port
+
+	log.Printf("Starting server at %s", path)
+	if err := http.ListenAndServe(path, r); err != nil {
 		log.Fatal(err)
 	}
 
-	log.Println("Shutting server down")
+	log.Printf("Shutting server down")
 }
