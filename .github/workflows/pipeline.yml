@@ -33,6 +33,7 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           file: ./coverage.txt        
+          token: ${{ secrets.CODECOV_TOKEN }}
     
   deploy:
     name: Deply on Heroku
