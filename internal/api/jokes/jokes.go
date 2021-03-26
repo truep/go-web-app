@@ -1,6 +1,7 @@
 package jokes
 
 import (
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -22,6 +23,8 @@ func NewJokeClient(baseUrl string) *JokeClient {
 
 // GetJoke ...
 func (jc *JokeClient) GetJoke() (*api.JokeResponse, error) {
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+
 	urlPath := jc.url + getJokePah
 	resp, err := http.Get(urlPath)
 	if err != nil {
