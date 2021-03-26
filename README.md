@@ -4,3 +4,8 @@
 По мотивам воркшопа: 
 
 [Разработка production ready web сервиса на Go - Илья Казначеев](https://www.youtube.com/watch?v=UTWIskmGN5o)
+
+## TODO:
+* добавить методов
+* попробовать дописать тестов
+* вынести самому(или найти либу) для gracefull shutdown
