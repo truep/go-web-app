@@ -22,8 +22,9 @@ func NewHandler(jokeClient api.Client, customJoke string) *Handler {
 func (h *Handler) Hello(w http.ResponseWriter, r *http.Request) {
 	if h.customJoke != "" {
 		fmt.Fprintf(w, h.customJoke)
+		return
 	}
-	
+
 	joke, err := h.jokeClient.GetJoke()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
