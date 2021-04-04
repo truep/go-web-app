@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"errors"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
@@ -38,7 +39,7 @@ func TestHandler_Hello(t *testing.T) {
 		{
 			name:     "Testing error case",
 			joke:     &api.JokeResponse{},
-			err:      &http.ProtocolError{},
+			err:      errors.New("Some stupid error"),
 			codeWant: http.StatusInternalServerError,
 			bodyWant: http.StatusText(http.StatusInternalServerError),
 		},
